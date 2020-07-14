@@ -69,9 +69,6 @@ config :phoenix, :plug_init_mode, :runtime
 
 # Configure your database
 config :shift_control_gt, ShiftControlGt.Repo,
-  username: "postgres",
-  password: "brayan",
-  database: "shift_control_gt_dev",
-  hostname: "localhost",
+  url: System.get_env("DATABASE_URL"),
   ssl: true,
   pool_size: 10
