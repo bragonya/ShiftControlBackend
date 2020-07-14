@@ -7,7 +7,8 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with webpack to recompile .js and .css sources.
 config :shift_control_gt, ShiftControlGtWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: {:system, "PORT"}],
+  force_ssl: [rewrite_on: [:x_forwarded_proto]],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -72,4 +73,5 @@ config :shift_control_gt, ShiftControlGt.Repo,
   password: "brayan",
   database: "shift_control_gt_dev",
   hostname: "localhost",
+  ssl: true,
   pool_size: 10
